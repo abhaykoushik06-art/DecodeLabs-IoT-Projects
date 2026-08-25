@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "author": "ABHAY KOUSHIK",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -19.2, "left": -14.36, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": 29.1, "left": -139.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "dht1:VCC", "green", [ "h0" ] ],
+    [ "esp:GND.1", "dht1:GND", "black", [ "h0" ] ],
+    [ "dht1:SDA", "esp:4", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
