@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "ABHAY KOUSHIK",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -67.2, "left": 139.24, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -82.4, "left": 21.42, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": 41.1, "left": -127.4, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 140.4, "left": 32.6, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 140.4,
+      "left": 90.2,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -74.4,
+      "left": -113.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pir1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "esp:GND.1", "pir1:GND", "black", [ "h0" ] ],
+    [ "esp:27", "pir1:OUT", "green", [ "h0" ] ],
+    [ "gas1:VCC", "esp:5V", "red", [ "h38.4", "v56.7", "h96" ] ],
+    [ "esp:GND.1", "gas1:GND", "black", [ "h0" ] ],
+    [ "esp:34", "gas1:AOUT", "green", [ "h0" ] ],
+    [ "led2:A", "esp:25", "green", [ "v0" ] ],
+    [ "led2:C", "esp:GND.1", "green", [ "v0" ] ],
+    [ "led1:A", "esp:26", "green", [ "v48", "h67.2", "v-182.4" ] ],
+    [ "led1:C", "esp:GND.1", "green", [ "v19.2", "h38.8", "v-115.2" ] ],
+    [ "bz1:2", "esp:14", "green", [ "v0" ] ],
+    [ "bz1:1", "esp:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
